@@ -1,3 +1,7 @@
-# 麦轮底盘代码
+# 麦轮底盘
 
-M3508×4＋C620电调，CAN3，ID 1至4。运动学解算＋每轮速度环PID，配置在`app_config.h`。BSP来源：东南大学3SE战队电控组队伍工程（主控STM32H723），用到其中`PID.h`、`Motor.h`、`DJI_Motor.h`、`Task_Can.h`、`sysconfig.h`，不在本仓库内。
+四个M3508加C620电调，走CAN3，ID是1到4。
+
+控制的是速度。先用麦轮运动学算出四个轮子各自的目标转速，每个轮子一个速度环PID算电流发给电调，没有做角度环。参数都在app_config.h里改。
+
+用到队里BSP的PID.h、Motor.h、DJI_Motor.h、Task_Can.h、sysconfig.h，BSP不在这个仓库里。
